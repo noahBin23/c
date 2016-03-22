@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+COMDEF_H	linkqueue.c	2;"	d	file:
+COMDEF_H	linkqueue.h	8;"	d
+ERROR	linkqueue.h	17;"	d
+FALSE	linkqueue.h	15;"	d
+InitQueue	linkqueue.c	/^Status InitQueue(LinkQueue *Q){$/;"	f
+LinkQueue	linkqueue.h	/^}LinkQueue;$/;"	t	typeref:struct:__anon1
+OK	linkqueue.h	16;"	d
+QEle	linkqueue.h	/^typedef struct QEle{$/;"	s
+QElemType	linkqueue.h	/^}QElemType;$/;"	t	typeref:struct:QEle
+QNode	linkqueue.h	/^typedef struct QNode{$/;"	s
+QNode	linkqueue.h	/^}QNode,*QueuePtr;$/;"	t	typeref:struct:QNode
+QueuePtr	linkqueue.h	/^}QNode,*QueuePtr;$/;"	t	typeref:struct:QNode
+Status	linkqueue.h	/^typedef int Status;$/;"	t
+TRUE	linkqueue.h	14;"	d
+data	linkqueue.h	/^	QElemType data;$/;"	m	struct:QNode
+front	linkqueue.h	/^	QueuePtr front; \/\/头节点$/;"	m	struct:__anon1
+i	linkqueue.h	/^	int i;$/;"	m	struct:QEle
+next	linkqueue.h	/^	struct QNode *next;$/;"	m	struct:QNode	typeref:struct:QNode::QNode
+rear	linkqueue.h	/^	QueuePtr rear;  \/\/尾结点$/;"	m	struct:__anon1

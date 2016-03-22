@@ -1,0 +1,86 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+DeQueue	MutileProcessControl (copy).c	/^Status DeQueue(PCBQueue *q,PCB *e){$/;"	f
+DeQueue	MutileProcessControl.c	/^Status DeQueue(PCBQueue *q,PCB *e){$/;"	f
+EnQueue	MutileProcessControl (copy).c	/^Status EnQueue(PCBQueue *queue,PCB pcb){$/;"	f
+EnQueue	MutileProcessControl.c	/^Status EnQueue(PCBQueue *queue,PCB pcb){$/;"	f
+FALSE	MutileProcessControl (copy).c	11;"	d	file:
+FALSE	MutileProcessControl.c	11;"	d	file:
+LENGTH	10_1.c	3;"	d	file:
+Myrandom	MutileProcessControl (copy).c	/^int Myrandom(){$/;"	f
+Myrandom	MutileProcessControl.c	/^int Myrandom(){$/;"	f
+OK	MutileProcessControl (copy).c	12;"	d	file:
+OK	MutileProcessControl.c	12;"	d	file:
+PAUSE	MutileProcessControl (copy).c	15;"	d	file:
+PAUSE	MutileProcessControl.c	15;"	d	file:
+PC	MutileProcessControl (copy).c	/^int PC = 0; \/\/定义总的时间流$/;"	v
+PC	MutileProcessControl.c	/^int PC = 0; \/\/定义总的时间流$/;"	v
+PCB	MutileProcessControl (copy).c	/^}PCB;$/;"	t	typeref:struct:node	file:
+PCB	MutileProcessControl.c	/^}PCB;$/;"	t	typeref:struct:node	file:
+PCBNode	MutileProcessControl (copy).c	/^}*PCBNode;$/;"	t	typeref:struct:QNode	file:
+PCBNode	MutileProcessControl.c	/^}*PCBNode;$/;"	t	typeref:struct:QNode	file:
+PCBQueue	MutileProcessControl (copy).c	/^}PCBQueue;$/;"	t	typeref:struct:__anon2	file:
+PCBQueue	MutileProcessControl.c	/^}PCBQueue;$/;"	t	typeref:struct:__anon1	file:
+PID	MutileProcessControl (copy).c	/^    int PID;$/;"	m	struct:node	file:
+PID	MutileProcessControl.c	/^    int PID;$/;"	m	struct:node	file:
+QNode	MutileProcessControl (copy).c	/^typedef struct QNode{$/;"	s	file:
+QNode	MutileProcessControl.c	/^typedef struct QNode{$/;"	s	file:
+QueueEmpty	MutileProcessControl (copy).c	/^Status QueueEmpty(PCBQueue *q){$/;"	f
+QueueEmpty	MutileProcessControl.c	/^Status QueueEmpty(PCBQueue *q){$/;"	f
+RUN	MutileProcessControl (copy).c	14;"	d	file:
+RUN	MutileProcessControl.c	14;"	d	file:
+Status	MutileProcessControl (copy).c	/^typedef int Status;$/;"	t	file:
+Status	MutileProcessControl.c	/^typedef int Status;$/;"	t	file:
+TIME_PIACE_TIME	MutileProcessControl (copy).c	13;"	d	file:
+TIME_PIACE_TIME	MutileProcessControl.c	13;"	d	file:
+TN	bingfa.c	7;"	d	file:
+TRUE	MutileProcessControl (copy).c	10;"	d	file:
+TRUE	MutileProcessControl.c	10;"	d	file:
+count	MutileProcessControl (copy).c	/^    int count;$/;"	m	struct:node	file:
+count	MutileProcessControl.c	/^    int count;$/;"	m	struct:node	file:
+cputime	MutileProcessControl (copy).c	/^    int cputime;$/;"	m	struct:node	file:
+cputime	MutileProcessControl.c	/^    int cputime;$/;"	m	struct:node	file:
+data	MutileProcessControl (copy).c	/^    PCB data;$/;"	m	struct:QNode	file:
+data	MutileProcessControl.c	/^    PCB data;$/;"	m	struct:QNode	file:
+front	MutileProcessControl (copy).c	/^    PCBNode front; \/\/队头指针$/;"	m	struct:__anon2	file:
+front	MutileProcessControl.c	/^    PCBNode front; \/\/队头指针$/;"	m	struct:__anon1	file:
+initProcessQueue	MutileProcessControl (copy).c	/^void initProcessQueue(PCBQueue *pcb,int n){$/;"	f
+initProcessQueue	MutileProcessControl.c	/^void initProcessQueue(PCBQueue *pcb,int n){$/;"	f
+initQueue	MutileProcessControl (copy).c	/^Status initQueue(PCBQueue *q){$/;"	f
+initQueue	MutileProcessControl.c	/^Status initQueue(PCBQueue *q){$/;"	f
+main	10_1.c	/^int main(){$/;"	f
+main	MutileProcessControl (copy).c	/^int main(){$/;"	f
+main	MutileProcessControl.c	/^int main(){$/;"	f
+main	bingfa.c	/^int main(){$/;"	f
+name	MutileProcessControl (copy).c	/^    char name[10];$/;"	m	struct:node	file:
+name	MutileProcessControl.c	/^    char name[10];$/;"	m	struct:node	file:
+needtime	MutileProcessControl (copy).c	/^    int needtime;$/;"	m	struct:node	file:
+needtime	MutileProcessControl.c	/^    int needtime;$/;"	m	struct:node	file:
+next	MutileProcessControl (copy).c	/^    struct QNode *next;$/;"	m	struct:QNode	typeref:struct:QNode::QNode	file:
+next	MutileProcessControl (copy).c	/^    struct node *next;$/;"	m	struct:node	typeref:struct:node::node	file:
+next	MutileProcessControl.c	/^    struct QNode *next;$/;"	m	struct:QNode	typeref:struct:QNode::QNode	file:
+next	MutileProcessControl.c	/^    struct node *next;$/;"	m	struct:node	typeref:struct:node::node	file:
+node	MutileProcessControl (copy).c	/^typedef struct node{$/;"	s	file:
+node	MutileProcessControl.c	/^typedef struct node{$/;"	s	file:
+printNode	MutileProcessControl (copy).c	/^void printNode(PCBQueue *queue){$/;"	f
+printNode	MutileProcessControl.c	/^void printNode(PCBQueue *queue){$/;"	f
+printPCB	MutileProcessControl (copy).c	/^void printPCB(PCB data){$/;"	f
+printPCB	MutileProcessControl.c	/^void printPCB(PCB data){$/;"	f
+printResult	MutileProcessControl.c	/^void printResult(PCBQueue *pcb){$/;"	f
+prio	MutileProcessControl (copy).c	/^    int prio; \/\/优先数$/;"	m	struct:node	file:
+prio	MutileProcessControl.c	/^    int prio; \/\/优先数$/;"	m	struct:node	file:
+rear	MutileProcessControl (copy).c	/^    PCBNode rear; \/\/队尾指针$/;"	m	struct:__anon2	file:
+rear	MutileProcessControl.c	/^    PCBNode rear; \/\/队尾指针$/;"	m	struct:__anon1	file:
+round	MutileProcessControl (copy).c	/^    int round;$/;"	m	struct:node	file:
+round	MutileProcessControl.c	/^    int round;$/;"	m	struct:node	file:
+routine	bingfa.c	/^void routine(void *arg){$/;"	f
+run	MutileProcessControl (copy).c	/^void run(PCB *pcb){$/;"	f
+run	MutileProcessControl.c	/^void run(PCB *pcb){$/;"	f
+startTime	MutileProcessControl.c	/^	int startTime;$/;"	m	struct:node	file:
+state	MutileProcessControl (copy).c	/^    int state;$/;"	m	struct:node	file:
+state	MutileProcessControl.c	/^    int state;$/;"	m	struct:node	file:
+test	MutileProcessControl.c	/^void test(){$/;"	f
