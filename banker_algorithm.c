@@ -12,8 +12,6 @@ void printarray(int *p,int n);
 void print2Array(int *p,int n,int m);
 void displayProcess();
 //安全性算法
-Status safe();
-Status cmpNeedWork(int *work,int i);
 
 #define M 3 //M 类资源
 
@@ -28,6 +26,9 @@ Status cmpNeedWork(int *work,int i);
 
 typedef int Status;
 
+Status cmpNeedWork(int *work,int i);
+Status safe();
+void Banker(int choice);
 void init();
 //定义各种向量
 int Available[M];
@@ -44,22 +45,18 @@ int main(){
 	int i;
 	init();
 	//提出请求
-	
-	printf("请求资源，输入进程号：");
-	scanf("%d",&num);
-	printf("输入请求向量：");
-	for(i=0;i<M;i++){
-		scanf("%d",*(Request + i));
-	}
+	while(1){
+		printf("请求资源，输入进程号：");
+		scanf("%d",&num);
+		printf("输入请求向量：");
+		for(i=0;i<M;i++){
+			scanf("%d",(Request + i));
+		}
 
-	//执行银行家算法
-	if(safe() == FALSE){
-		printf("请求拒绝，你的请求时不安全的\n");
-		//恢复请求前的状态
-	}else{
-		printf("请求成功，同意分配资源\n");
+		//执行银行家算法
+		Banker(num);
+		displayProcess();
 	}
-
 	return 0;
 }
 
@@ -103,9 +100,9 @@ void init(){
 		for(j=0;j<M;j++)
 			*P_ARRAY(Allocation,i,j) = 0;
 		//初始化需求矩阵 最初与最大需求矩阵相同
-		for(i=0;i<n;i++)
-			for(j=0;j<M;j++)
-				*P_ARRAY(Need,i,j) = *P_ARRAY(Max,i,j);
+	for(i=0;i<n;i++)
+		for(j=0;j<M;j++)
+			*P_ARRAY(Need,i,j) = *P_ARRAY(Max,i,j);
 			
 	printf("进程初始化完成，初始化信息:\n");
 	displayProcess();
@@ -124,7 +121,7 @@ void Banker(int choice){
 	}
 	//(2)
 	for(i=0;i<M;i++){
-		if(*(Request + i) > *P_ARRAY(Available,choice,i)){
+		if(*(Request + i) > *(Available+i)){
 			printf("没有足够的资源，请求错误\n");
 			return;
 		}
@@ -136,6 +133,19 @@ void Banker(int choice){
 		*P_ARRAY(Need,choice,i) = *P_ARRAY(Need,choice,i) - *(Request+i);
 	}
 	//(4) 执行安全性算法
+	if(safe() == FALSE){
+		printf("请求拒绝，你的请求是不安全的\n");
+		//恢复请求前的状态
+		for(i=0;i<M;i++){
+			Available[i] = Available[i] + Request[i];
+			*P_ARRAY(Allocation,choice,i) = *P_ARRAY(Allocation,choice,i) - *(Request+i);
+			*P_ARRAY(Need,choice,i) = *P_ARRAY(Need,choice,i) + *(Request+i);
+		}
+	}else{
+		printf("请求成功，同意分配资源\n");
+	}
+
+
 }
 
 //安全性算法
@@ -143,24 +153,26 @@ Status safe(){
 	//1)	设置两个工作向量Work=Available，Finish=false；
 	int work[M];
 	int i,j;
-	Status Finish[M]={FALSE};
+	Status *Finish;
+	Finish = (Status *)malloc(n*sizeof(Status));
+	if(!Finish) exit(1);
 	for(i=0;i<M;i++)
 		work[i] = Available[i];
 // 	2)	从进程集合中找到一个满足下述条件的进程；
 // 		Finish=false;
 // 	Need<=work;
-	for(i=0;i<M;i++){
+	for(i=0;i<n;i++){
 		if(Finish[i] == FALSE && cmpNeedWork(work,i)){
 			//(3)
 			for(j=0;j<M;j++){
 				work[j] = work[j] + *P_ARRAY(Allocation,i,j);
-				Finish[i] = TRUE;
 			}
-			i = 0;
+			Finish[i] = TRUE;
+			i --;
 		}
 	}
 
-	for(i=0;i<M;i++){
+	for(i=0;i<n;i++){
 		if(Finish[i] == FALSE)
 			return FALSE;
 	}
@@ -172,7 +184,7 @@ Status cmpNeedWork(int *work,int i){
 	int j;
 	for(j=0;j<M;j++){
 		if(*P_ARRAY(Need,i,j) > *(work + j))
-			return FALSE
+			return FALSE;
 	}
 	return TRUE;
 }
@@ -221,22 +233,22 @@ void displayProcess(){
 			sprintf(tmp,"%4d",*P_ARRAY(Max,i,j));
 			strcat(str,tmp);
 		}
-		sprintf(tmp,"\t\t\0");
+		sprintf(tmp,"\t\t");
 		strcat(str,tmp);
 		
 		for(j=0;j<m;j++){
 			sprintf(tmp,"%4d",*P_ARRAY(Allocation,i,j));
 			strcat(str,tmp);
 		}
-		sprintf(tmp,"\t\t\0");
+		sprintf(tmp,"\t\t");
 		strcat(str,tmp);
 
 		for(j=0;j<m;j++){
 			sprintf(tmp,"%4d",*P_ARRAY(Need,i,j));
 			strcat(str,tmp);
 		}
-		sprintf(tmp,"\0");
-		strcat(str,tmp);
+		//sprintf(tmp,"");
+		//strcat(str,tmp);
 
 		printf("%s\n",str);
 		memset(str, 0x00, sizeof (char) * 64); //全部设置为0x00即\0字符
