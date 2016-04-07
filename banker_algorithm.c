@@ -46,6 +46,7 @@ int main(){
 	init();
 	//提出请求
 	while(1){
+		printf("-------------------------------------------------------------------\n");
 		printf("请求资源，输入进程号：");
 		scanf("%d",&num);
 		printf("输入请求向量：");
@@ -62,6 +63,7 @@ int main(){
 
 void init(){
 	int i = 0,j=0;
+	int ch;
 	printf("****************模拟银行家算法******************\n");
 	printf("输入可利用资源数目(共%d类):",M);
 	for(i=0;i < M;i ++){
@@ -96,10 +98,22 @@ void init(){
 	}
 	
 	//初始化分配矩阵，都为零
-	for(i=0;i<n;i++)
-		for(j=0;j<M;j++)
-			*P_ARRAY(Allocation,i,j) = 0;
-		//初始化需求矩阵 最初与最大需求矩阵相同
+	//应该实现一个如果什么都不输入的话就是默认零，输入数字的话就初始化
+	printf("初始化分配矩阵：\n");
+	if(getchar() == 13){
+		for(i=0;i<n;i++){
+			printf("Process[%d]:",i);
+			for(j=0;j<M;j++)
+				*P_ARRAY(Allocation,i,j) = 0;
+		}
+	}else{
+		for(i=0;i<n;i++){
+			for(j=0;j<M;j++)
+				*P_ARRAY(Allocation,i,j) = 0;
+		}
+	}
+	
+	//初始化需求矩阵 最初与最大需求矩阵相同
 	for(i=0;i<n;i++)
 		for(j=0;j<M;j++)
 			*P_ARRAY(Need,i,j) = *P_ARRAY(Max,i,j);

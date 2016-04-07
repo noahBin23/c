@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ERROR	linkedlist.h	2;"	d
+ElemType	linkedlist.h	/^}ElemType;$/;"	t	typeref:struct:__anon1
+FALSE	linkedlist.h	5;"	d
+LNode	linkedlist.h	/^typedef struct LNode{$/;"	s
+Link	linkedlist.h	/^}*Link,*Position;$/;"	t	typeref:struct:LNode
+LinkList	linkedlist.h	/^}LinkList;$/;"	t	typeref:struct:__anon2
+OK	linkedlist.h	3;"	d
+Position	linkedlist.h	/^}*Link,*Position;$/;"	t	typeref:struct:LNode
+Status	linkedlist.h	/^typedef int Status;$/;"	t
+TRUE	linkedlist.h	4;"	d
+a	linkedlist.h	/^	int a;$/;"	m	struct:__anon1
+data	linkedlist.h	/^	ElemType data;$/;"	m	struct:LNode
+head	linkedlist.h	/^	Link head,tail;$/;"	m	struct:__anon2
+len	linkedlist.h	/^	int len; \/\/指示线性链表中元素数据的个数$/;"	m	struct:__anon2
+makeNode	linkedlist.c	/^Status makeNode(Link *p,ElemType e){$/;"	f
+next	linkedlist.h	/^	struct LNode *next;$/;"	m	struct:LNode	typeref:struct:LNode::LNode
+tail	linkedlist.h	/^	Link head,tail;$/;"	m	struct:__anon2
