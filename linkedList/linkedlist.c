@@ -71,3 +71,39 @@ Status ListEmpty(LinkList L){
 	if(L.head == L.tail) return TRUE;
 	else return FALSE;
 }
+
+Status LocatePos(LinkList *L,int i,Link *p){
+	//返回P指示的线性链表中第i个节点的位置并返回OK，i值不合法返回ERROR
+	int j = 1;
+	//判断i值是否合法
+	if(i < 1 || i > ListLength(*L)) return ERROR;
+	*p = L->head->next;
+	while(j<i){
+		*p = (*p)->next;
+		j ++;
+	}
+}
+
+int ListLength(LinkList L){
+	int i;
+	Link node;
+	i = 0;
+	node = L.head->next;
+	while(node){
+		node = node->next;
+		i ++;
+	}
+	return i;
+}
+
+/**
+ *在带头节点的单链线性表L的第i个元素之前插入元素e
+ * **/
+Status ListInsert(LinkList *L,int i,ElemType e){
+	Link h;
+	Link s;
+	if(!LocatePos(L,i-1,&h)) return ERROR; // i不合法
+	if(!makeNode(&s,e)) return ERROR; //分配空间失败
+	InsFirst(h,s);
+	return OK;
+}

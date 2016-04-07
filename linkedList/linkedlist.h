@@ -27,6 +27,7 @@ typedef struct{
  * */
 Status makeNode(Link *p,ElemType e);
 
+int ListLength(LinkList L);  //指示线性表中元素的个数
 /*
  *释放p所指的节点
  * */
@@ -73,3 +74,9 @@ Status Remove(LinkList *L,Link q);
  *若线性链表Ｌ为空，则返回ＴＲＵＥ，否则返回ＦＡＬＳＥ
  * */
 Status ListEmpty(LinkList L);
+
+
+Status LocatePos(LinkList *L,int i,Link *p);
+
+//《数据结构》 算法2.20
+Status ListInsert(LinkList *L,int i,ElemType e); // 再带头节点的单链线性表L的第i个元素之前插入元素e

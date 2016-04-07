@@ -4,6 +4,7 @@
 void showMenu();
 void displayLinkedlist(LinkList L);
 void initl(LinkList L);
+void test(LinkList L);
 int main(){
 	LinkList L;
 	if(InitList(&L)){
@@ -12,10 +13,24 @@ int main(){
 	showMenu();
 	initl(L);
 	displayLinkedlist(L);
+	test(L);
+	printf("nums is:%d\n",ListLength(L));
 	if(DestoryList(&L)){
 		printf("队列销毁成功\n");
 	}
 	return 0;
+}
+
+void test(LinkList L){
+	//测试函数
+	Link p;
+	ElemType e_temp;
+	e_temp.a = 100;
+	LocatePos(&L,2,&p);
+	printf("LocatePos[2]:%p\n",p);
+	printf("test ListInsert(2):\n");
+	ListInsert(&L,2,e_temp);
+	displayLinkedlist(L);
 }
 
 void showMenu(){
