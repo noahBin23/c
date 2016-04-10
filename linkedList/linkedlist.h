@@ -80,3 +80,5 @@ Status LocatePos(LinkList *L,int i,Link *p);
 
 //《数据结构》 算法2.20
 Status ListInsert(LinkList *L,int i,ElemType e); // 再带头节点的单链线性表L的第i个元素之前插入元素e
+
+Status Append(LinkList *L,Link s);  //还没有验证是否正确

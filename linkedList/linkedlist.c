@@ -107,3 +107,14 @@ Status ListInsert(LinkList *L,int i,ElemType e){
 	InsFirst(h,s);
 	return OK;
 }
+
+//将指针s所指的一串结a点连接再线性表L的最后一个结点
+//之后，并改变链表L的尾指针指向新的尾节点
+Status Append(LinkList *L,Link s){
+	L->tail->next = s;
+	while(s){
+		L->tail = s;
+		s = s->next;
+	}
+	return OK;
+}
