@@ -14,6 +14,7 @@ void CreatePolyn(polynomial *p,int m);
 Status showPolynomial(polynomial p,char *ch);
 void init();
 
+void AddPolyn(polynomial *pa,polynomial *pb);
 
 polynomial pa,pb;
 
@@ -22,6 +23,8 @@ int main()
 	//CreatePolyn(&p,2);
 	//displayLinkedlist(p);
 	init();
+	AddPolyn(&pa,&pb);
+	showPolynomial(pa,"pa");
 	return 0;	
 }
 
@@ -114,19 +117,65 @@ void init()
 
 	printf("多项式初始化成功\n");
 	showPolynomial(pa,"pa");
+	showPolynomial(pb,"pb");
 }
 
 Status showPolynomial(polynomial p,char *ch)
 {
 	Link h;
-	if(p.head == p.tail) return ERROR;
+	//if(p.head == p.tail) return ERROR;
 	h = p.head->next;
 	printf("%s=",ch);
 	while(1){
-		printf("%.3f^%d",h->data.coef,h->data.expn);
+		printf("%.3fX^%d",h->data.coef,h->data.expn);
 		h = h->next;
 		if(!h) break;  //到最后一个节点退出
 		printf("+");
 	}
 	printf("\n");
+}
+
+void AddPolyn(polynomial *pa,polynomial *pb)
+{
+	//多项式假发，利用两个多项式的节点构成和多项式。pa=pa+pb
+	Link ha,hb,qa,qb;
+	ElemType a,b;
+	float sum;
+	ha = GetHead(*pa);
+	hb = GetHead(*pb);
+	qa = NextPos(*pa,ha);
+	qb = NextPos(*pb,hb);
+	while(qa && qb){
+		a = GetCurElem(qa);
+		b = GetCurElem(qb);  //得到两表中当前的比较元素
+		switch(cmp(a,b)){
+			case -1:
+				ha = qa;
+				qa = NextPos(*pa,qa);
+				break;
+			case 0:  //两者的指数值相等
+				sum = a.coef + b.coef;
+				if(sum != 0){
+					a.coef = sum;
+					SetCurElm(qa,a);
+					ha = qa;
+				}else{
+					DelFirst(ha,&qa);
+					FreeNode(qa);
+				}
+				DelFirst(hb,&qb);
+				FreeNode(qb);
+				qb = NextPos(*pb,hb);
+				qa = NextPos(*pa,ha);
+				break;
+			case 1:
+				DelFirst(hb,&qb);
+				InsFirst(ha,qb);
+				qb = NextPos(*pb,hb);
+				ha = NextPos(*pa,ha);
+				break;
+		} // witch
+	} // while
+	if(!ListEmpty(*pb)) Append(pa,qb);  //连接剩余结点
+	FreeNode(hb);  // 释放pb头节点
 }

@@ -1,4 +1,4 @@
-#include"linkedlist.h"
+#include"linkedlist_pol.h"
 
 Status makeNode(Link *p,ElemType e){ //
 	*p = (Link)malloc(sizeof(struct LNode));
@@ -7,7 +7,7 @@ Status makeNode(Link *p,ElemType e){ //
 	return OK;
 }
 
-void FreeNode(Link *p){
+void FreeNode(Link p){
 	free(p);
 }
 
@@ -127,4 +127,23 @@ Position GetHead(LinkList L)
 Status SetCurElm(Link p,ElemType e){
 	p->data = e;
 	return OK;
+}
+
+//已知P指向线性链表L中的一个节点，返回P所指节点的直接后继位置
+//若无后继，返回NULL
+Position NextPos(LinkList L,Link p)
+{
+	Link h;
+	h = L.head->next;
+	while(h){
+		if(h == p)
+		  return h->next;
+	}
+	return NULL;
+}
+
+//已知P指向线性链表中的一个节点，返回p所指节点中数据元素的值
+ElemType GetCurElem(Link p)
+{
+	return p->data;
 }

@@ -33,7 +33,7 @@ int ListLength(LinkList L);  //指示线性表中元素的个数
 /*
  *释放p所指的节点
  * */
-void FreeNode(Link *p);
+void FreeNode(Link p);
 
 /**
  *构造一个空的线性链表L
@@ -87,3 +87,5 @@ Position GetHead(LinkList L);  //返回线性表L中的头节点的位置
 
 //已知p指向线性链表中的一个节点，用e更新p所指节点中的数据元素的值
 Status SetCurElm(Link p,ElemType e);
+Position NextPos(LinkList L,Link p);
+ElemType GetCurElem(Link p);
