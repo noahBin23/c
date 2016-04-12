@@ -11,6 +11,7 @@ int cmp(term a,term b);
 void displayLinkedlist(LinkList L);
 Status LocateElem(LinkList L,ElemType e,Position *q,compare cmp);
 void CreatePolyn(polynomial *p,int m);
+Status showPolynomial(polynomial p,char *ch);
 void init();
 
 
@@ -20,6 +21,7 @@ int main()
 {
 	//CreatePolyn(&p,2);
 	//displayLinkedlist(p);
+	init();
 	return 0;	
 }
 
@@ -111,4 +113,20 @@ void init()
 	CreatePolyn(&pb,n);
 
 	printf("多项式初始化成功\n");
+	showPolynomial(pa,"pa");
+}
+
+Status showPolynomial(polynomial p,char *ch)
+{
+	Link h;
+	if(p.head == p.tail) return ERROR;
+	h = p.head->next;
+	printf("%s=",ch);
+	while(1){
+		printf("%.3f^%d",h->data.coef,h->data.expn);
+		h = h->next;
+		if(!h) break;  //到最后一个节点退出
+		printf("+");
+	}
+	printf("\n");
 }
