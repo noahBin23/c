@@ -134,10 +134,11 @@ Status SetCurElm(Link p,ElemType e){
 Position NextPos(LinkList L,Link p)
 {
 	Link h;
-	h = L.head->next;
+	h = L.head;
 	while(h){
 		if(h == p)
 		  return h->next;
+		h = h->next;
 	}
 	return NULL;
 }
