@@ -23,7 +23,10 @@ int main()
 	//CreatePolyn(&p,2);
 	//displayLinkedlist(p);
 	init();
-	AddPolyn(&pa,&pb);
+	//AddPolyn(&pa,&pb);
+	displayLinkedlist(pa);
+	printf("----------");
+	displayLinkedlist(pb);
 	showPolynomial(pa,"pa");
 	return 0;	
 }
