@@ -23,10 +23,10 @@ int main()
 	//CreatePolyn(&p,2);
 	//displayLinkedlist(p);
 	init();
-	//AddPolyn(&pa,&pb);
 	displayLinkedlist(pa);
 	printf("----------");
 	displayLinkedlist(pb);
+	AddPolyn(&pa,&pb);
 	showPolynomial(pa,"pa");
 	return 0;	
 }
@@ -59,7 +59,7 @@ Status LocateElem(LinkList L,ElemType e,Position *q,compare cmp)
 {
 	Link h,pro;
 	if(L.head == L.tail){  //链表空 返回错误  这句不应该返回错误 应该返回头节点的地址，插入进去
-		*q = L.head;
+		//*q = L.head;
 		return FALSE;  //TODO 这样的话尾节点咋办。。值怎么改变
 	}
 	h = L.head->next;
@@ -69,7 +69,7 @@ Status LocateElem(LinkList L,ElemType e,Position *q,compare cmp)
 			*q = h;
 			return TRUE;
 		}
-		if(cmp(h->data,e) > 0){
+		if(cmp(e,h->data) > 0){
 			*q = pro;
 			return FALSE;
 		}
@@ -140,7 +140,7 @@ Status showPolynomial(polynomial p,char *ch)
 
 void AddPolyn(polynomial *pa,polynomial *pb)
 {
-	//多项式假发，利用两个多项式的节点构成和多项式。pa=pa+pb
+	//多项式加法，利用两个多项式的节点构成和多项式。pa=pa+pb
 	Link ha,hb,qa,qb;
 	ElemType a,b;
 	float sum;

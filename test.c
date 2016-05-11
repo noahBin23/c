@@ -1,5 +1,11 @@
 #include<stdio.h>
-
+#include<curses.h>
 void main(){
-	printf("%ld",sizeof(int));
+	char ch;
+	initscr();
+	while(1){
+		ch = getch();
+		printf("%c",ch);
+	}
+	endwin();
 }
